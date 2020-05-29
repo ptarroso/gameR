@@ -1,0 +1,14 @@
+Package: gameR
+Type: Package
+Title: A small useless package to play games in R with your data
+Version: 1.0
+Date: 2020-05-07
+Author: Pedro Tarroso
+Maintainer: Pedro Tarroso <ptarroso@cibio.up.pt>
+Description: This pacakge recovers some old classical games to play in the
+    R environment. The purpose of the games is none (!) and the only requirement
+    is that it must include some of your data in the game play. Well, maybe
+    there is some purpose: practice programming in R without a work mindset!
+License: GPL (>= 2)
+Imports: keypress, raster
+Depends: keypress, raster
