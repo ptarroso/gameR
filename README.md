@@ -1,9 +1,11 @@
-# Species Digitizer
+# gameR
 
-The species digitizer package helps the process of georeferencing
-images and digitize species presence. The automated digitalization is
-based on a color, thus, contrasting colors with the background often
-produces the best results.
+The package *gameR* is meant to be a sink of useless code devoted to games in R.
+There are two rules in this package:
+ 1. The games in the package must include, to any extent, data that we use in 
+ everyday R analyses.
+ 2. No rule is meant to be forever with the exception of rule no. 2
+
 
 ## Installation
 
