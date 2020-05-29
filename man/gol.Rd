@@ -68,7 +68,7 @@ gol(map=NULL, grid=NULL, mean=NA, sd=NA)
 	gol()
 
 	# Use a world DEM
-	data(dem)
+	dem <- raster(system.file("data/dem.tif", package="gameR"))
 	gol(dem, mean=500, sd=250)
 
 }
