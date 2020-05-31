@@ -41,7 +41,7 @@ so I'm guessing it will work...)
 The keypress is detecting key input in the console, so you have to move the focus 
 to your console window to be able to play.
 
-###Game of Life:
+### Game of Life:
 ```
 library(gameR)
 gol()
