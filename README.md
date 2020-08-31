@@ -11,7 +11,7 @@ There are two rules in this package:
 
 There are several option to install *gameR*:
 
-- To install the current released version found [here](, you need to
+- To install the current released version found [here](https://github.com/ptarroso/gameR/releases), you need to
   download the built *tar.gz* package file and install it.
 
 - Clone the repository with *git* and build the package in your computer.
