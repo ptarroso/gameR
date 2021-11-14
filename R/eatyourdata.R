@@ -20,6 +20,7 @@ function(data, ndim=4) {
 	    g$dims <- NULL # Components (dimensions) currently active
 			g$comp <- 0 # Tracks component label animation
 	    g$food <- NULL # Food (data points) available
+			g$item <- NULL # Current food item to eat
 	    g$eat <- TRUE # Tracks if snake ate on current frame
 	    g$time <- Sys.time() # Tacks time for animation purposes
 	}
