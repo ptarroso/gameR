@@ -16,6 +16,7 @@ function(data, ndim=4) {
 	    g$u <- 0.025 # Unit of snake size
 	    g$snake <- matrix(rep(0, 3*ndim), 3, ndim) # snake
 	    g$score <- NULL  # Tracking score
+			g$growth <- 1 # Controls snake growth (growth proportional to score)
 	    g$move <- NULL # Move direction
 	    g$dims <- NULL # Components (dimensions) currently active
 			g$comp <- 0 # Tracks component label animation
@@ -93,9 +94,15 @@ function(data, ndim=4) {
 		if (all(round(head, 4) == round(g$item, 4))) {
 			g$score <- g$score + 1
 			g$eat <- TRUE
+			g$growth <- g$score
 		} else {
-			# Remove tail end (does not grow)
-			g$snake <- g$snake[-nrow(g$snake),]
+			if (g$growth == 1) {}
+				# Remove tail end (does not grow)
+				g$snake <- g$snake[-nrow(g$snake),]
+			} else {
+				# Grow based on growth factor
+				g$growth <- g$growth - 1
+			}
 		}
 
 	}
