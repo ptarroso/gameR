@@ -1,3 +1,9 @@
+black2red <- function(i, n) {
+		# Simple wrapping function to return a gradient color from black to red
+    col <- colorRampPalette(c("#212224", "#FF1A1A"))
+    return(col(n)[i])
+}
+
 eatyourdata <-
 function(data, ndim=4) {
 
@@ -6,16 +12,16 @@ function(data, ndim=4) {
 	}
 
 	resetgame <- function(g) {
-	    g$state <- 0
-	    g$u <- 0.025 #unit of snake size
-	    g$refresh.rate <- 5
-	    g$snake <- matrix(rep(0, 3*ndim), 3, ndim)
-	    g$score <- NULL
-	    g$move <- NULL
-	    g$dims <- NULL
-	    g$food <- NULL
-	    g$eat <- TRUE
-	    g$time <- Sys.time()
+	    g$state <- 0 # STate of the game (start, game, over)
+	    g$u <- 0.025 # Unit of snake size
+	    g$snake <- matrix(rep(0, 3*ndim), 3, ndim) # snake
+	    g$score <- NULL  # Tracking score
+	    g$move <- NULL # Move direction
+	    g$dims <- NULL # Components (dimensions) currently active
+			g$comp <- 0 # Tracks component label animation
+	    g$food <- NULL # Food (data points) available
+	    g$eat <- TRUE # Tracks if snake ate on current frame
+	    g$time <- Sys.time() # Tacks time for animation purposes
 	}
 
 	startscreen <- function(g) {
@@ -113,9 +119,15 @@ function(data, ndim=4) {
         rect(g$l[1], g$l[3], g$l[2], g$l[4], col="white")
         abline(v=0)
         abline(h=0)
-        text(-0.98, 0.03, paste("Comp.", g$dims[1]))
-        text(0.03, 0.98, paste("Comp.", g$dims[2]), srt=90)
-        rect(g$l[1], g$l[3], g$l[2], g$l[4])
+
+				# Component label display and animation
+				ccex <- 2+g$comp**2/25
+				ccol <- black2red(g$comp+1, 6)
+				if (g$comp > 0) g$comp <- g$comp - 1
+				text(-0.99, 0.05, paste0("C", g$dims[1]), cex=ccex, col=ccol)
+				text(0.07, 1.01, paste0("C", g$dims[2]), cex=ccex, col=ccol)
+
+        rect(g$l[1], g$l[3], g$l[2], g$l[4], lwd=2)
 
         # Plot food
         points(g$food[,g$dims[1]], g$food[,g$dims[2]],
@@ -149,6 +161,7 @@ function(data, ndim=4) {
             g$move <- key
         } else if (key %in% as.character(1:(ndim-1))) {
 	        g$dims <- c(as.integer(key), as.integer(key)+1)
+	        g$comp <- 5 # Sets duration for component label animation
         }
         NULL
     }
