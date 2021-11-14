@@ -94,7 +94,7 @@ function(data, ndim=4) {
 			g$score <- g$score + 1
 			g$eat <- TRUE
 		} else {
-			# Remove tail
+			# Remove tail end (does not grow)
 			g$snake <- g$snake[-nrow(g$snake),]
 		}
 
