@@ -1,7 +1,7 @@
 Package: gameR
 Type: Package
 Title: A small useless package to play games in R with your data
-Version: 1.0
+Version: 1.1
 Date: 2020-05-07
 Author: Pedro Tarroso
 Maintainer: Pedro Tarroso <ptarroso@cibio.up.pt>

@@ -6,6 +6,10 @@ There are two rules in this package:
  everyday R analyses.
  2. No rule is meant to be forever with the exception of rule no. 2
 
+## Games
+
+1. Game of Life
+2. Eat Your Data
 
 ## Installation
 
@@ -29,7 +33,7 @@ This package depends on other packages:
 
 ## Usage
 
-This package depends on keypress so it will only work on a command line session.
+The Game of Life depends on keypress so it will only work on a command line session.
 On linux and Mac should be fairly simple: open up a terminal and start a session
 by typing `R` at the prompt. In Windows it will probably work similarly, if you
 open the command line (`cmd` in search bar) and start the `R.exe` in the 
@@ -41,11 +45,21 @@ so I'm guessing it will work...)
 The keypress is detecting key input in the console, so you have to move the focus 
 to your console window to be able to play.
 
+The "eat your data" game does not have the dependency on keypress, thus it must work
+on most platforms. The focus must be on the graphical window, so, you probably
+don't have to do anything else once the game starts.
+
+
 ### Game of Life:
 ```
 library(gameR)
 gol()
 ```
 
+### Eat Your Data
+```
+library(gameR)
+eatyourdata(iris[,1:4])
+```
 
 
